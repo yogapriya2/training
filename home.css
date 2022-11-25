@@ -1,0 +1,16 @@
+
+h1{
+    color: white;
+}
+p{
+    color: white;
+}
+.btn{
+    background-color:#666062;
+    color:white;
+    border:none;
+    font-size:30px;
+    padding:20px;
+    border-radius:35px;
+    margin-top: 30px;
+}

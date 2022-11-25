@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sign.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body style="background-image: url('moun.jpg');background-repeat: no-repeat;background-size: cover;">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <p style="color: white; font-size: 60px;margin-left: 90%;font-family: 'Zen Tokyo Zoo', cursive;" class="mt-1">mango</p>
+    <p style="color: white; font-size: 40px; margin-left: 40px;" class="mt-2"><a href="login page.html" style="color: white;text-decoration: none;">&#60;</a></p>
+    <center class="mt-1"><h1 style="font-size: 80px;">Create new account</h1></center>
+    <div class="container">
+        <div class="row">
+          <div class="col-6 mt-5">
+            <div class="profile-pic">
+               <img alt="User Pic" src="upload2.png" id="profile-image1" height="200">
+              <label for="profile-image-upload" class="upload">&plus;</label>
+              <input id="profile-image-upload" class="hidden" type="file" onchange="previewFile()" required>
+              <button type="submit" style="margin-left: 90px;background-color: black;color: white;border-radius: 20px;">Submit</button>
+      </div>
+          </div>
+            <div class="col-6 mt-5">
+              <div id="error"></div>
+                <form id="form" action=""  method="GET">
+                    <div class="form-group row">
+                      <label for="name" class="col-sm-2 col-form-label" style="color: white;font-weight:bolder;">FirstName:</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="name" placeholder="Enter firstname" pattern="^[a-zA-Z\s]{2,}$"  oninvalid="this.setCustomValidity('Enter a valid name')" required>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="lastname" class="col-sm-2 col-form-label" style="color: white;font-weight:bolder;">LastName:</label>
+                      <div class="col-sm-10">
+                        <input type="text"  class="form-control-plaintext" id="lastname" placeholder="Enter lastname" pattern="^[a-zA-Z\s]{1,}$"  oninvalid="this.setCustomValidity('Enter a valid name')" required>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="mailid" class="col-sm-2 col-form-label" style="color: white;font-weight:bolder;">MailId:</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control-plaintext" id="mailid" placeholder="Enter mailid" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="birth" class="col-sm-2 col-form-label" style="color: white;font-weight:bolder;">DateOfBirth:</label>
+                        <div class="col-sm-10">
+                          <input type="date" class="form-control-plaintext" id="birth" placeholder="Eg:25/03/2002" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="password" class="col-sm-2 col-form-label" style="color: white;font-weight:bolder;">Password:</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control-plaintext" id="password" placeholder="password" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="copassword" class="col-sm-2 col-form-label" style="color: white;font-weight:bolder;">CoPassword:</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control-plaintext" id="copassword" placeholder="confirm password" required>
+                        </div>
+                      </div>
+                      <button type="submit" id="submit" class="btn btn-primary mt-5" style="border-radius: 40%;margin-left: 100px;box-shadow: 1px 1px 1px black;">Sign up</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function previewFile() {
+            var preview = document.querySelector('img');
+            var file    = document.querySelector('input[type=file]').files[0];
+            var reader  = new FileReader();
+          
+            reader.addEventListener("load", function () {
+              preview.src = reader.result;
+            }, false);
+          
+            if (file) {
+              reader.readAsDataURL(file);
+            }
+          }
+                                $(function() {
+                      $('#profile-image1').on('click', function() {
+                          $('#profile-image-upload').click();
+                      });
+                  });
+                  const name = document.getElementById('name')
+const password = document.getElementById('password')
+const form = document.getElementById('form')
+const errorElement = document.getElementById('error')
+const lastname = document.getElementById('lastname')
+
+form.addEventListener('submit', (e) => {
+  let messages = []
+  if (name.value === '' || name.value == null) {
+    messages.push('Name is required')
+  }
+
+  if (password.value.length <= 6) {
+    messages.push('Password must be longer than 6 characters')
+  }
+
+  if (password.value.length >= 10) {
+    messages.push('Password must be less than 10 characters')
+  }
+
+  if (password.value === 'password') {
+    messages.push('Password cannot be password')
+  }
+  
+  if (copassword.value != password.value) {
+    messages.push('co-password must be match with the password')
+  }
+
+
+  if (messages.length > 0) {
+    e.preventDefault()
+    errorElement.innerText = messages.join(', ')
+  }
+})
+    </script>
+  </body>
+</html>
